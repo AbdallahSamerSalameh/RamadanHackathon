@@ -1,6 +1,9 @@
 /* Global Styles */
 :root {
     --primary-color: #07968a;
+    --outline-primary-color: #07968a; /* New color for outline button */
+    --outline-hover-color: rgb(9, 87, 79); /* Hover color for outline button */
+    --outline-active-color: #07968a; /* Active color for outline button */
     --secondary-color: #8C6A0B;
     --accent-color: #f8cf4b;
     --dark-color: #212529;
@@ -79,42 +82,64 @@ a:hover {
 
 .btn-primary,
 .btn-outline-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: white; /* Ensure text color is white for better contrast */
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s; /* Smooth transition */
 }
 
-.btn-primary:hover,
-.btn-outline-primary:hover {
-    background-color: #056b61; /* Hover color */
-    border-color: #056b61; /* Hover color */
-    color: white; /* Ensure text color remains white */
+.btn-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: white !important; /* Ensure text color is white for better contrast */
 }
 
-.btn-primary:active,
-.btn-outline-primary:active {
+.btn-primary:hover {
+    background-color: #056b61 !important; /* Hover color */
+    border-color: #056b61 !important; /* Hover color */
+    color: white !important; /* Ensure text color remains white */
+}
+
+.btn-primary:active {
     background-color: #03483f !important; /* Darker color for active state */
     border-color: #03483f !important; /* Darker color for active state */
     color: white !important; /* Ensure text color remains white */
 }
 
+/* Complete button styling overhaul */
 .btn-outline-primary {
-    background-color: transparent; /* Ensure background is transparent */
-    color: var(--primary-color); /* Text color matches primary color */
+    background-color: transparent !important;
+    border-color: var(--outline-primary-color) !important;
+    color: var(--outline-primary-color) !important;
+    transition: all 0.3s ease !important;
 }
 
 .btn-outline-primary:hover {
-    background-color: var(--primary-color); /* Same as btn-primary base color */
-    border-color: var(--primary-color); /* Same as btn-primary base color */
-    color: white; /* Ensure text color is white on hover */
+    background-color: var(--outline-hover-color) !important;
+    border-color: var(--outline-hover-color) !important;
+    color: white !important;
 }
 
-.btn-outline-primary:active {
-    background-color: #03483f !important; /* Darker color for active state */
-    border-color: #03483f !important; /* Darker color for active state */
-    color: white !important; /* Ensure text color remains white */
+/* Fix for active state */
+.btn-outline-primary:active,
+.btn-outline-primary.active,
+.btn-outline-primary:focus:active,
+.show > .btn-outline-primary.dropdown-toggle {
+    background-color: var(--outline-active-color) !important;
+    border-color: var(--outline-active-color) !important;
+    color: white !important;
+    box-shadow: none !important;
 }
 
+/* Fix for focus state but not active */
+.btn-outline-primary:focus {
+    box-shadow: 0 0 0 0.25rem rgba(7, 150, 138, 0.25) !important;
+}
+
+/* Add this if you're using Bootstrap's toggle functionality */
+.btn-check:checked + .btn-outline-primary,
+.btn-check:active + .btn-outline-primary {
+    background-color: var(--outline-active-color) !important;
+    border-color: var(--outline-active-color) !important;
+    color: white !important;
+}
 .section-header {
     text-align: center;
     margin-bottom: 50px;
