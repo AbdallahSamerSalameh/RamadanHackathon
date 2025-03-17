@@ -787,6 +787,11 @@ textarea.form-control {
     background-color: #e6bf45;
     border-color: #e6bf45;
 }
+.organizer-img img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
 
 /* Footer */
 /* Footer */
