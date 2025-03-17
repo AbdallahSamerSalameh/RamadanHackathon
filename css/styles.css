@@ -410,6 +410,10 @@ section {
 .campaign-img {
     position: relative;
 }
+.campaign-img img {
+    height: 200px;
+    width: 360px;
+}
 
 .campaign-badge {
     position: absolute;
@@ -1008,3 +1012,10 @@ textarea.form-control {
         flex-direction: column;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      display: none;
+    }
+  }
